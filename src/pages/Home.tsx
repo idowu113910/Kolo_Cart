@@ -331,13 +331,14 @@ const Home = () => {
             className="flex w-full items-center rounded-full border border-transparent bg-[#F3EDF7] px-4"
           >
             <img src={search} alt="" className="shrink-0" />
+            {/* text-[16px] stops iOS Safari from zooming in when the input is focused */}
             <input
               type="search"
               name="searchBox"
               id="searchBox"
               aria-label="Search supermarkets and products"
               placeholder="Search supermarkets, produ......"
-              className="w-full min-w-0 bg-transparent font-jakarta text-[12px] text-slate-800 outline-none"
+              className="w-full min-w-0 bg-transparent font-jakarta text-[16px] text-slate-800 outline-none"
             />
           </label>
         </div>

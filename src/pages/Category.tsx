@@ -246,6 +246,7 @@ const SearchBar: FC<SearchBarProps> = ({
       className="flex h-11 w-full items-center gap-3 rounded-full border border-transparent bg-[#F3EDF7] px-4"
     >
       <IoSearchOutline className="h-[18px] w-[18px] shrink-0 text-[#49454F]" />
+      {/* text-[16px] stops iOS Safari from zooming in when the input is focused */}
       <input
         id="categorySearch"
         type="text"
@@ -253,7 +254,7 @@ const SearchBar: FC<SearchBarProps> = ({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         aria-label="Search categories"
-        className="w-full min-w-0 bg-transparent font-jakarta text-[12px] text-[#1A2B4C] outline-none placeholder:text-[#7F8C8D]"
+        className="w-full min-w-0 bg-transparent font-jakarta text-[16px] text-[#1A2B4C] outline-none placeholder:text-[#7F8C8D]"
       />
       {value.length > 0 && (
         <button
@@ -454,6 +455,7 @@ const CategoryScreen: FC<CategoryScreenProps> = ({ onBack }) => {
             {/* Search pill: tapping it opens the options screen */}
             <div className="mt-6 px-2 min-[360px]:px-4">
               <div className="relative">
+                {/* text-[16px] stops iOS Safari from zooming in on focus */}
                 <input
                   type="text"
                   readOnly
@@ -461,7 +463,7 @@ const CategoryScreen: FC<CategoryScreenProps> = ({ onBack }) => {
                   onClick={() => goTo("options")}
                   placeholder="Search fruits & vegetables"
                   aria-label="Search fruits and vegetables"
-                  className="h-11 w-full min-w-0 cursor-pointer rounded-full bg-[#F3EDF7] pl-11 pr-4 text-[12px] font-medium text-[#1A2B4C] outline-none placeholder:text-[#9A9AA3]"
+                  className="h-11 w-full min-w-0 cursor-pointer rounded-full bg-[#F3EDF7] pl-11 pr-4 text-[16px] font-medium text-[#1A2B4C] outline-none placeholder:text-[#9A9AA3]"
                 />
 
                 <AiOutlineSearch className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#121212]" />
@@ -511,12 +513,13 @@ const CategoryScreen: FC<CategoryScreenProps> = ({ onBack }) => {
           /* Options screen: stays here after a refresh (kept in history state) */
           <div className="mt-6 px-2 min-[360px]:px-4">
             <div className="relative">
+              {/* text-[16px] stops iOS Safari from zooming in on focus */}
               <input
                 type="text"
                 autoFocus
                 placeholder="Search fruits & vegetables"
                 aria-label="Search fruits and vegetables"
-                className="h-11 w-full min-w-0 rounded-full bg-[#F3EDF7] pl-11 pr-4 text-[12px] font-medium text-[#1A2B4C] outline-none placeholder:text-[#9A9AA3]"
+                className="h-11 w-full min-w-0 rounded-full bg-[#F3EDF7] pl-11 pr-4 text-[16px] font-medium text-[#1A2B4C] outline-none placeholder:text-[#9A9AA3]"
               />
 
               <AiOutlineSearch className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#121212]" />
