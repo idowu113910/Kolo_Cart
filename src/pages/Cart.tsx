@@ -67,26 +67,6 @@ const checkoutDetails = {
   },
 };
 
-// The steps shown on the Track Order screen. The wording of the last two
-// depends on whether the order is delivered or collected.
-const getTrackingSteps = (option: string | null) => [
-  { title: "Order Confirmed", text: "We’ve received your order" },
-  { title: "Preparing Your Order", text: "Your items are being packed" },
-  option === "collect"
-    ? {
-        title: "Ready for Pickup",
-        text: "Come and collect it at the supermarket",
-      }
-    : { title: "Out for Delivery", text: "Your rider is on the way" },
-  option === "collect"
-    ? { title: "Picked Up", text: "Enjoy your order" }
-    : { title: "Delivered", text: "Enjoy your order" },
-];
-
-// Which step the order is on right now (0 = first). Mock value: replace it
-// with the real status from your API when you have one.
-const TRACKING_ACTIVE_STEP = 1;
-
 export interface CartItem {
   id: number;
   name: string;
@@ -377,14 +357,6 @@ const Cart = () => {
     }
   };
 
-  const closeConfirmation = () => {
-    if (window.history.state?.cartStep === "confirmation") {
-      window.history.back(); // the popstate listener below updates the screen
-    } else {
-      setStep("cart");
-    }
-  };
-
   const closeCheckout = () => {
     if (window.history.state?.cartStep === "checkout") {
       window.history.back(); // the popstate listener below updates the screen
@@ -594,8 +566,6 @@ const Cart = () => {
   /* ------------------------------ Tracking screen --------------------------- */
 
   if (screen === "tracking") {
-    const trackingSteps = getTrackingSteps(selectedOption);
-
     // The 2nd, 3rd and 4th circles show their tick once the line above them has
     // been drawn. The tick waits for that line to finish.
     const secondTicked = linesDrawn >= 1;
@@ -1010,7 +980,7 @@ const Cart = () => {
               <IoArrowBackOutline className="h-6 w-6 shrink-0 text-[#121212]" />
             </button>
 
-            <p className="min-w-0 truncate font-semibold">
+            <p className="min-w-0 truncate font-semibold mt-1">
               My Cart ({items.length})
             </p>
           </div>
