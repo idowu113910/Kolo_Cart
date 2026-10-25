@@ -95,8 +95,8 @@ const AllowLocation = () => {
         </div>
 
         {/* Bottom card */}
-        <div className="bg-[#1A2B4C]  rounded-tl-[20px]  rounded-tr-[20px] -mt-5  relative px-6 pt-12 pb-[max(4rem,env(safe-area-inset-bottom))] flex flex-col items-center">
-          <h5 className="font-bold text-[28px] text-white text-center">
+        <div className="bg-[#1A2B4C]  rounded-tl-[20px]  rounded-tr-[20px]   relative px-6 pt-25 pb-[max(4rem,env(safe-area-inset-bottom))] flex flex-col items-center">
+          <h5 className="font-bold text-[28px] text-white text-center ">
             Allow location access
           </h5>
           <p className="font-normal text-[16px] text-white text-center  max-w-72">

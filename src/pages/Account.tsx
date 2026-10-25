@@ -2,7 +2,6 @@ import pic from "../assets/picture.svg";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiSettings } from "react-icons/ci";
-import { IoIosNotifications } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import { CiCreditCard1 } from "react-icons/ci";
 

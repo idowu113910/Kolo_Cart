@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IoArrowBackOutline, IoAdd, IoCheckmark } from "react-icons/io5";
+import { IoArrowBackOutline, IoAdd } from "react-icons/io5";
 import tap from "../assets/vegetables.svg";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";

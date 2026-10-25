@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { IoChevronForward } from "react-icons/io5";
 import icecold from "../assets/icecold bird.svg";
 import { IoIosArrowForward } from "react-icons/io";
-import icecold2 from "../assets/icecold 2.svg"
-import dove from "../assets/dove.svg"
-import donut from "../assets/donut.svg"
+import icecold2 from "../assets/icecold 2.svg";
+import dove from "../assets/dove.svg";
+import donut from "../assets/donut.svg";
 
 /* ========================================================================== */
 /*                                   TYPES                                    */
@@ -219,7 +219,7 @@ interface OrderCardProps {
   onClick: () => void;
 }
 
-const OrderCard: FC<OrderCardProps> = ({ order, onClick }) => {
+export const OrderCard: FC<OrderCardProps> = ({ order, onClick }) => {
   const firstItem = order.items[0];
   const extraItems = order.items.length - 1;
 
@@ -297,6 +297,9 @@ const tabs: { key: OrderTab; label: string }[] = [
   { key: "completed", label: "Completed" },
   { key: "cancelled", label: "Cancelled" },
 ];
+
+// The status words shown in the orders list
+type OrderListStatus = "Ongoing" | "Completed" | "Cancelled";
 
 interface OrderSummary {
   id: string;
@@ -464,13 +467,17 @@ const Orders: FC = () => {
 
                 {/* Right column: never shrinks or wraps */}
                 <div className="flex shrink-0 flex-col items-end whitespace-nowrap ">
-                  <p className="h-5 leading-5 font-semibold text-[16px] text-[#2C3E50]">{formatNaira(order.total)}</p>
+                  <p className="h-5 leading-5 font-semibold text-[16px] text-[#2C3E50]">
+                    {formatNaira(order.total)}
+                  </p>
 
                   <span className="flex h-5 items-center">
                     <IoIosArrowForward />
                   </span>
 
-                  <p className="h-5 leading-5 font-medium text-[12px] text-[#2C3E50]">{order.time}</p>
+                  <p className="h-5 leading-5 font-medium text-[12px] text-[#2C3E50]">
+                    {order.time}
+                  </p>
                 </div>
               </button>
             </li>
